@@ -1,0 +1,71 @@
+:root {
+    --seite: #e9edf1;
+    --karte: #ffffff;
+    --rahmen: #b8c2cc;
+    --akzent: #1d5c7a;
+    --button: #c5d2d8;
+    --btnhover: #e3ebf0;
+
+}
+
+body {
+    background: var(--seite);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color:#082f41;
+}
+
+form {
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 1.75rem 2rem 2rem;
+    background: var(--karte);
+    border: 1px solid var(--rahmen);
+    border-radius: 6px;
+    font-weight: 600;
+    color: var(--text);
+    box-shadow: -1px 1px 5px 5px rgba(91,91,91,0.19);
+    
+}
+
+div {
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 1.5rem;
+    border: 1px solid var(--rahmen);
+    background: var(--karte);
+}
+
+.button {
+    align-self: center;
+    margin: 0.5rem;
+    background: var(--button); 
+    font-size: 18px; 
+    line-height: 18px; 
+    padding: 10px; 
+    border-radius: 0px; 
+    font-family: inherit; 
+    text-decoration: none; 
+    text-transform: none;
+}
+
+.button:hover {
+    background: var(--btnhover); 
+}
+
+input[type="text"] {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--rahmen);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+    font-weight: 400;
+}
+
+input[type="radio"] {
+    margin: 0 0.3rem 0 0;
+    accent-color: var(--akzent);
+    vertical-align: middle;
+}
