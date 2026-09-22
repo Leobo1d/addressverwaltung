@@ -21,14 +21,14 @@ Folgende Informationen sollen in einzelnen Feldern gespeichert werden können:
     - Telefonnummer 
     - Adresstyp (Firma / Person) 
 
-1. ~~Erstelle ein passendes Datenmodell.~~ 
+~~1.~~ Erstelle ein passendes Datenmodell.
 
-2. ~~Erstelle eine Eingabeseite für die Daten in PHP. Übergebe die Daten an eine weitere Seite,~~ 
-~~    die zunächst diese Daten in der Datenbank speichert und danach zur Kontrolle erneut ~~
-~~    geordnet anzeigt. Dabei soll jeweils ein Label Auskunft darüber geben, welche Information~~ 
-~~    in welches Eingabefeld zu schreiben ist bzw. welche Information wo angezeigt wird. ~~
+~~2.~~ Erstelle eine Eingabeseite für die Daten in PHP. Übergebe die Daten an eine weitere Seite,
+    die zunächst diese Daten in der Datenbank speichert und danach zur Kontrolle erneut
+    geordnet anzeigt. Dabei soll jeweils ein Label Auskunft darüber geben, welche Information
+    in welches Eingabefeld zu schreiben ist bzw. welche Information wo angezeigt wird.
     
-~~Es soll eine Funktion speichern() geben, die das Speichern in der Datenbank übernimmt.~~ 
+    Es soll eine Funktion speichern() geben, die das Speichern in der Datenbank übernimmt.
 
 3. Übersicht und Kernfunktionen 
     3.1 Erstelle eine Übersichtsseite aller in der Datenbank gespeicherten Adressen. Es sollen 
