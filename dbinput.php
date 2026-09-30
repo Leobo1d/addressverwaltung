@@ -3,36 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adressverwaltung</title>
+<title>Adressverwaltung - Einfügen</title>
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 
 <body>
 
-<div class="overview">
+    <table>
+    <h2>Daten</h2>
 
-    <h4>Daten</h4>
-    <p>
-    Name: <?= $_POST["name"]; ?> <?php 
-    if($_POST["adresstyp"] === "firma") {echo "(" . ucfirst($_POST["adresstyp"]) . ")";
-    } 
-    else {
-        echo "";
-    } ?><br>    
-    Vorname: <?= $_POST["vorname"] ?><br><br>
-    </p>
-    <p>
-    Strasse: <?= $_POST["strasse"] ?><br>
-    Hausnummer: <?= $_POST["hausnummer"] ?><br>
-    PLZ: <?= $_POST["plz"] ?><br>
-    Ort: <?= $_POST["ort"] ?><br>
-    Land: <?= $_POST["land"] ?><br><br>
-    </p>
-    <p>
-    Telefonnummer: <?= $_POST["telefonnummer"] ?><br><br>
-    </p>
+    <tr>
+        <th>Vorname</th>
+        <th>Name</th>
+        <th>Adresstyp</th>
+    </tr>
+    <tr>
+        <td><?= $_POST['vorname']; ?></td>
+        <td><?= $_POST['name']; ?></td>
+        <td><?= ucfirst($_POST['adresstyp']); ?></td>
+    </tr>
+    <tr>
+        <th>Strasse</th>
+        <th>Hausnummer</th>
+    </tr>
+    <tr>
+        <td><?= $_POST['strasse']; ?></td>
+        <td><?= $_POST['hausnummer']; ?></td>
+    </tr>
+    <tr>
+        <th>PLZ</th>
+        <th>Ort</th>
+        <th>Land</th>
+        <th>Telefonnummer</th>
+    </tr>
+        <tr>    
+        <td><?= $_POST['plz']; ?></td>
+        <td><?= $_POST['ort']; ?></td>
+        <td><?= $_POST['land']; ?></td>
+        <td><?= $_POST['telefonnummer']; ?></td>
+    </tr>
+    </table>
 
     <form method="POST" action="dbinput.php">
+
         <input type="hidden" name="name" value="<?= htmlspecialchars($_POST['name']) ?>">
         <input type="hidden" name="vorname" value="<?= htmlspecialchars($_POST['vorname']) ?>">
         <input type="hidden" name="strasse" value="<?= htmlspecialchars($_POST['strasse']) ?>">
@@ -44,13 +57,13 @@
         <input type="hidden" name="adresstyp" value="<?= htmlspecialchars($_POST['adresstyp']) ?>">
 
 
-    Diese Daten speichern? 
     <br>
-    <button type="submit" name="speichern" class="button">Speichern</button>
-    <br>
+    <?php $speichern = "Speichern"; ?>
+    <button type="submit" name="speichern" class="button"><?= $speichern; ?></button>
+    <a href="index.php" class="button">Zurück</button>
+    <a href="kernfunktionen\uebersicht.php" class="button">Zur Übersicht</button>
 
     </form>
-</div>
 
 </body>
 
@@ -75,11 +88,6 @@ $tel = $userinput["telefonnummer"];
 $adresstyp = $userinput["adresstyp"];
 
 //alles ready machen für die datenbank (Alle Strings in kleinbuchstaben, sonderzeichen aus der Telefonnummer entfernen, falls vorhanden)
-$name = strtolower($name);
-$vorname = strtolower($vorname);
-$strasse = strtolower($strasse);
-$ort = strtolower($ort);
-$land = strtolower($land);
 
 $tel = preg_replace("/[^a-zA-Z0-9_äöüÄÖÜ? ]/u", "", $tel);
 
@@ -88,10 +96,10 @@ $tel = preg_replace("/[^a-zA-Z0-9_äöüÄÖÜ? ]/u", "", $tel);
 
 //Insert in die Datenbank
     // ort
-    $stmt = $mysqli->prepare("INSERT INTO ort(plz, ort, land) VALUES (?, ?, ?)
-                            ON DUPLICATE KEY UPDATE ort = VALUES(ort), land = VALUES(land)");
+    $stmt = $mysqli->prepare("INSERT INTO ort(plz, ort, land) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $plz, $ort, $land);
     $stmt->execute();
+    $ortId = $mysqli->insert_id;
 
     // personen
     $stmt = $mysqli->prepare("INSERT INTO personen (name, vorname, adresstyp, telefon) VALUES (?, ?, ?, ?)");
@@ -100,8 +108,8 @@ $tel = preg_replace("/[^a-zA-Z0-9_äöüÄÖÜ? ]/u", "", $tel);
     $personenId = $mysqli->insert_id;
 
     // adresse
-    $stmt = $mysqli->prepare("INSERT INTO adresse(strasse, hausnummer, plz, personenId) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("sssi", $strasse, $hausnummer, $plz, $personenId);
+    $stmt = $mysqli->prepare("INSERT INTO adresse(strasse, hausnummer, personenId, ortId) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("sssi", $strasse, $hausnummer, $personenId, $ortId);
     $stmt->execute();
     $adresseId = $mysqli->insert_id;
 
@@ -110,6 +118,8 @@ $tel = preg_replace("/[^a-zA-Z0-9_äöüÄÖÜ? ]/u", "", $tel);
 //Abfrage nach dem drücken des Speichern buttons, dann ausführen der speichern Funktion ^
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['speichern'])) {
     speichern($_POST, $mysqli);
+    $speichern = "Speichern erfolgreich";
 }
+
 
 ?>

@@ -3,38 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adressverwaltung</title>
+<title>Adressverwaltung - Eintragen</title>
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 
 <body>
 
 <form action="dbinput.php" method="POST">
-    Name/Firmenname: <br><input type="text" name="name" required> *<br>
-    <br>
+    <br><input type="text" name="name" placeholder="Name/Firmenname: " required> *
+    <br><br>
         <input type="radio" id="nachname" name="adresstyp" value="nachname" required>
         <label for="nachname">Nachname</label>
         <input type="radio" id="firma" name="adresstyp" value="firma" required>
-        <label for="nachname">Firma</label> *<br>
+        <label for="firma">Firma</label> *
         
     <br>
-    Vorname: <br><input type="text" name="vorname"><br>
+    <br><input type="text" name="vorname" placeholder="Vorname">
     <br>
-    Strasse: <br><input type="text" name="strasse" required> *<br>
+    <br><input type="text" name="strasse" placeholder="Straße: " required> *
     <br>
-    Hausnummer: <br><input type="text" name="hausnummer" required> *<br>
+    <br><input type="text" name="hausnummer" placeholder="Hausnummer: " required> *
     <br>
-    PLZ: <br><input type="text" name="plz" required> *<br>
+    <br><input type="text" name="plz" placeholder="Postleitzahl: " required> *
     <br>
-    Ort: <br><input type="text" name="ort" required> *<br>
+    <br><input type="text" name="ort" placeholder="Ort: " required> *
     <br>
-    Land: <br><input type="text" name="land" required> *<br>
+    <br><input type="text" name="land" placeholder="Land: " required> *
     <br>
-    Telefonnummer: <br><input type="text" name="telefonnummer"><br>
+    <br><input type="text" name="telefonnummer" placeholder="Telefonnummer:"><br>
 
 
-    <br><input class="button" type="submit">
+    <br><button class="button" type="submit">Weiter</button> <a href="kernfunktionen\uebersicht.php" class="button">Zur Übersicht</button>
 </form>
-
 </body>
 </html>

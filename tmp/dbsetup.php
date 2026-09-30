@@ -1,5 +1,12 @@
+CREATE TABLE ort (
+    ortId int PRIMARY KEY AUTO_INCREMENT,
+    plz varchar(10),
+    ort varchar(150),
+    land varchar(150)
+);
+
 CREATE TABLE personen (
-    personenId int PRIMARY KEY,
+    personenId int PRIMARY KEY AUTO_INCREMENT,
     name varchar(150) NOT NULL,
     vorname varchar(150),
     adresstyp varchar(5),
@@ -7,21 +14,15 @@ CREATE TABLE personen (
 );
 
 CREATE TABLE adresse (
-    adresseId int PRIMARY KEY,
+    adresseId int PRIMARY KEY AUTO_INCREMENT,
     strasse varchar(150),
     hausnummer varchar(150),
-    plz varchar,
     personenId int,
+    ortId int,
     CONSTRAINT fk_ort
-    FOREIGN KEY (plz)
-    REFERENCES ort(plz)
+    FOREIGN KEY (ortId)
+    REFERENCES ort(ortId),
     CONSTRAINT fk_personen
     FOREIGN KEY (personenId)
     REFERENCES personen(personenId)
-);
-
-CREATE TABLE ort (
-    plz varchar PRIMARY KEY,
-    ort varchar(150),
-    land varchar(150)
 );

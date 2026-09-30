@@ -31,17 +31,17 @@ Folgende Informationen sollen in einzelnen Feldern gespeichert werden können:
     Es soll eine Funktion speichern() geben, die das Speichern in der Datenbank übernimmt.
 
 3. Übersicht und Kernfunktionen 
-    3.1 Erstelle eine Übersichtsseite aller in der Datenbank gespeicherten Adressen. Es sollen 
+    ~~3.1~~ Erstelle eine Übersichtsseite aller in der Datenbank gespeicherten Adressen. Es sollen 
         nur Vorname, Name, PLZ und Ort (in dieser Reihenfolge) tabellarisch ausgegeben 
         werden. 
     
-    3.2 Erweitere die Übersichtsseite um folgende Funktionen, die jeweils eine eigene Seite 
+    ~~3.2~~ Erweitere die Übersichtsseite um folgende Funktionen, die jeweils eine eigene Seite 
         (und auch .php-Datei) aufrufen in der alle vorliegenden Informationen einer Adresse 
         anzeigt / bearbeitet werden. 
     
-        3.2.1 Anzeige in einer Adressdetail-Seite 
-        3.2.2 Bearbeiten der Adresse in einer Bearbeitungsseite 
-        3.2.3 Löschen einer Adresse nach Ausgabe auf einer Bestätigungsseite. 
+        ~~3.2.1~~ Anzeige in einer Adressdetail-Seite 
+        ~~3.2.2~~ Bearbeiten der Adresse in einer Bearbeitungsseite 
+        ~~3.2.3~~ Löschen einer Adresse nach Ausgabe auf einer Bestätigungsseite. 
     
     3.3 In der Übersichtsseite sollen die Adressen nach allen Feldern gefiltert werden können. 
         Es soll die Möglichkeit bestehen, dabei auch Wildcards ( % (beliebig viele Zeichen), _ 
@@ -79,3 +79,26 @@ Folgende Informationen sollen in einzelnen Feldern gespeichert werden können:
 
 Grundsätzlich soll nach jedem Aufgabenhauptpunkt (1.,2., etc.) das bisherige Arbeitsergebnis incl. 
 eines SQL-Dumps gezippt an den Tutoren per mail geschickt werden.
+
+
+
+
+
+Struktur:
+
+Index.php
+- Eintragen der Daten
+- Button zum übernehmen
+
+dbinput.php
+- Übersicht über alles zuvor eingetragene und Speichern Button
+- Übersicht Button -> übersicht seite 
+
+übersicht.php
+- mit allen einträgen in der Datenbank
+  - runter gebrochen auf vorname, nachname, plz, und ort
+- Einträge anklickbar
+  - > Führen zur Detail seite
+
+detail.php
+- Alle Informationen zu einem bestimmten Eintrag

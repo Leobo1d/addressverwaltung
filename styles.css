@@ -1,10 +1,12 @@
 :root {
     --seite: #e9edf1;
     --karte: #ffffff;
-    --rahmen: #b8c2cc;
+    --rahmen: #87a0b9;
+    --placeholder: #93a6b9;
     --akzent: #1d5c7a;
     --button: #c5d2d8;
     --btnhover: #e3ebf0;
+    --text: #1d5c7a;
 
 }
 
@@ -14,9 +16,13 @@ body {
     color:#082f41;
 }
 
+h2 {
+    text-align: center;
+}
+
 form {
     max-width: 30rem;
-    margin: 0 auto;
+    margin: 1.5rem auto;
     padding: 1.75rem 2rem 2rem;
     background: var(--karte);
     border: 1px solid var(--rahmen);
@@ -29,33 +35,58 @@ form {
 
 div {
     max-width: 30rem;
-    margin: 0 auto;
+    margin: 1rem auto;
     padding: 1rem 1.5rem 1.5rem;
     border: 1px solid var(--rahmen);
     background: var(--karte);
 }
 
-.button {
-    align-self: center;
+button.button {
+    align-self: left;
     margin: 0.5rem;
     background: var(--button); 
     font-size: 18px; 
     line-height: 18px; 
     padding: 10px; 
+    border: 1px solid var(--akzent);
+    color: var(--akzent);
     border-radius: 0px; 
     font-family: inherit; 
+    font-weight: 600;
     text-decoration: none; 
     text-transform: none;
 }
 
-.button:hover {
-    background: var(--btnhover); 
+button.button:hover {
+    background: var(--btnhover);
+        border: 1px solid var(--akzent);
+}
+
+a.button {
+    align-self: left;
+    margin: 0.5rem;
+    background: var(--button); 
+    font-size: 18px; 
+    line-height: 18px; 
+    padding: 10px; 
+    border: 1px solid var(--akzent);
+    border-radius: 0px; 
+    font-family: inherit;
+    font-weight: 600; 
+    text-decoration: none; 
+    text-transform: none;
+}
+
+a.button:hover {
+    background: var(--btnhover);
+        border: 1px solid var(--akzent);
 }
 
 input[type="text"] {
-    width: 100%;
+    align-items: center;
+    width: 90%;
     margin-top: 0.25rem;
-    padding: 0.55rem 0.7rem;
+    padding: 0.7rem 0.7rem;
     border: 1px solid var(--rahmen);
     border-radius: 4px;
     background: #fff;
@@ -69,3 +100,46 @@ input[type="radio"] {
     accent-color: var(--akzent);
     vertical-align: middle;
 }
+
+input:user-invalid {
+    border:2px solid red;
+    background-color: #f9ebeb;
+}
+
+table {
+    max-width: 30rem;
+    margin: 1rem auto;
+    padding: 1.75rem 2rem 2rem;
+    background: var(--karte);
+    border: 1px solid var(--rahmen);
+    border-radius: 6px;
+    font-weight: 600;
+    color: var(--text);
+    box-shadow: -1px 1px 5px 5px rgba(91,91,91,0.19);
+
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: var(--akzent);
+  text-decoration: none;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+td:hover {background-color: #ddd;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #6a878d;
+  color: white;
+}
+
+a {
+    color: var(--akzent);
+    text-decoration: none;
+}
+
