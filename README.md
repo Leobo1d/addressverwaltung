@@ -43,17 +43,17 @@ Folgende Informationen sollen in einzelnen Feldern gespeichert werden können:
         ~~3.2.2~~ Bearbeiten der Adresse in einer Bearbeitungsseite 
         ~~3.2.3~~ Löschen einer Adresse nach Ausgabe auf einer Bestätigungsseite. 
     
-    3.3 In der Übersichtsseite sollen die Adressen nach allen Feldern gefiltert werden können. 
+    ~~3.3~~ In der Übersichtsseite sollen die Adressen nach allen Feldern gefiltert werden können. 
         Es soll die Möglichkeit bestehen, dabei auch Wildcards ( % (beliebig viele Zeichen), _ 
         (genau ein Zeichen) ) verwenden zu können. 
     
-    3.4 Stelle eine Sortierung der ausgegebenen Daten in der Übersichtsseite sicher. Die 
+    ~~3.4~~ Stelle eine Sortierung der ausgegebenen Daten in der Übersichtsseite sicher. Die 
         Sortierung soll wie folgt sein: Nachname, Vorname, PLZ. 
     
-    3.5 Ziehe die 4 php-Dateien aus 2. und 3.2.1 bis 3.2.3 zu einer Datei zusammen. 
+    ~~3.5~~ Ziehe die 4 php-Dateien aus 2. und 3.2.1 bis 3.2.3 zu einer Datei zusammen. 
 
 4. Erweitere den Funktionsumfang der Übersichtsseite um folgende Punkte: 
-    4.1 Hinzufügen von Adressen 
+    ~~4.1~~ Hinzufügen von Adressen 
     4.2 Kopieren einer Adresse 
     4.3 Export einer Adresse als VCF 
     4.4 Import einer Adresse aus einem VCF-File 

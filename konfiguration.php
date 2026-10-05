@@ -1,5 +1,6 @@
 <?php
 
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 //Anmeldedaten von MySQL definieren
@@ -18,6 +19,6 @@ $mysqli = mysqli_connect(
 
 mysqli_set_charset($mysqli, 'utf8');
 
-if($mysqli) {
+if ($mysqli) {
     //echo "Verbindung erfolgreich";
 }
